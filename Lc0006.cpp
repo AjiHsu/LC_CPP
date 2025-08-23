@@ -1,5 +1,6 @@
 #include <string>
 #include <vector>
+#include <algorithm>
 using namespace std;
 class Solution {
 public:
@@ -15,8 +16,8 @@ public:
             idx += val;
         }
         string res;
-        for (int i = 0; i < numRows; i++)
-            res.append(vec[i].begin(), vec[i].end());
+        for_each(vec.begin(), vec.end(),
+            [&res](const vector<char>& v) {res.append(v.begin(), v.end()); });
 
         return res;
     }
