@@ -18,10 +18,10 @@ public:
         while (index < s.size() && '0' <= s[index] && s[index] <= '9') {
             res *= 10;
             res += s[index++] - '0';
-            if (isNeg && res >= -((long long)INT_MIN)) return INT_MIN;
+            if (isNeg && -res <= INT_MIN) return INT_MIN;
             if (!isNeg && res >= INT_MAX) return INT_MAX;
         }
 
-        return isNeg ? -res : res;
+        return (int) (isNeg ? -res : res);
     }
 };
